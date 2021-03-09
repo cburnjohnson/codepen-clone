@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import Editor from './components/Editor'
+import useLocalStorage from './hooks/useLocalStorage'
 
 function App() {
-  const [html, setHtml] = useState('')
-  const [css, setCss] = useState('')
-  const [js, setJs] = useState('')
+  const [html, setHtml] = useLocalStorage('html','<h1>Hello World</h1>')
+  const [css, setCss] = useLocalStorage('css','h1 {\n\ttext-align: center;\n  \tcolor: white;\n}')
+  const [js, setJs] = useLocalStorage('js','document.body.style.background = "blue"')
   const [srcDoc, setSrcDoc] = useState('')
 
   useEffect(() => {
